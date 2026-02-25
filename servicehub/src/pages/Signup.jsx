@@ -4,14 +4,12 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleSignup = () => {
-    // TEMP: redirect to login after signup
     navigate("/");
   };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <img src="/images/signup.svg" alt="signup" className="auth-img" />
         <h2>Create Account</h2>
 
         <input type="text" placeholder="Full Name" />

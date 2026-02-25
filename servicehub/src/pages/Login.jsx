@@ -10,7 +10,6 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const handleLogin = () => {
-    // BASIC VALIDATION
     if (!email || !password) {
       setError("Email and Password are required");
       return;
@@ -21,27 +20,18 @@ const Login = () => {
       return;
     }
 
-    // CLEAR ERROR
     setError("");
-
-    // FAKE AUTH STORAGE
     localStorage.setItem("isAuthenticated", "true");
     localStorage.setItem("role", role);
 
-    // ROLE BASED REDIRECT
-    if (role === "user") {
-      navigate("/user/dashboard");
-    } else if (role === "professional") {
-      navigate("/professional/dashboard");
-    } else if (role === "admin") {
-      navigate("/admin/dashboard");
-    }
+    if (role === "user") navigate("/user/dashboard");
+    else if (role === "professional") navigate("/professional/dashboard");
+    else if (role === "admin") navigate("/admin/dashboard");
   };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <img src="/images/login.svg" alt="login" className="auth-img" />
         <h2>Welcome Back</h2>
 
         {error && <p className="error-text">{error}</p>}
